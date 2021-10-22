@@ -1,0 +1,50 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    name: 🎨 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install code formatter
+        run: sudo apt-get install clang-format
+      - name: Check code style
+        run: |
+          find include -type f | xargs clang-format --dry-run -Werror
+          find src -type f | xargs clang-format --dry-run -Werror
+          find test -type f | xargs clang-format --dry-run -Werror
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+      - name: Check Markdown files
+        run: markdownlint .
+
+  test:
+    name: 🧪 Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install GCC compiler
+        run: sudo apt-get install build-essential
+      - name: Install PlatformIO Core
+        run: pip install -U platformio
+      - name: Run tests
+        run: pio test
+      - name: Install Gcovr
+        run: pip install gcovr
+      - name: Generate code coverage
+        run: |
+          mkdir code-coverage
+          rm .pio/build/native/test/tmp_pio_test_transport.*
+          gcovr -r . -e .pio/libdeps -e test -s
+          gcovr -r . -e .pio/libdeps -e test --html-details -o code-coverage/coverage.html
+      - name: Archive code coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage
+          path: code-coverage
