@@ -24,7 +24,7 @@
 [![Tested on Arduino Nano](https://img.shields.io/badge/tested%20on-arduino%20nano-00979D)][arduino-nano]
 [![Tested on NodeMCU](https://img.shields.io/badge/tested%20on-nodemcu-E7352C)][nodemcu]
 [![Tested on Wemos D1](https://img.shields.io/badge/tested%20on-wemos%20d1-E7352C)][wemos-d1]
-![Code Coverage](https://img.shields.io/badge/coverage%20lines-99.5%25-brightgreen)
+![Code Coverage](https://img.shields.io/badge/coverage-99.5%25-brightgreen)
 ![CI Workflow](https://github.com/malokhvii-eduard/arduino-bme280/actions/workflows/ci.yml/badge.svg)
 
   </p>
