@@ -23,5 +23,15 @@
   },
   "frameworks": "arduino",
   "platforms": "espressif8266,espressif32,atmelavr,atmelsam",
-  "dependencies": {}
+  "dependencies": {},
+  "export": {
+    "include": [
+      "LICENSE.md",
+      "include",
+      "src"
+    ],
+    "exclude": [
+      "examples/*"
+    ]
+  }
 }
