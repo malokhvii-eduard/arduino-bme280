@@ -72,8 +72,8 @@ root [`pio lib install`][platformio-lib-install]. Enjoy! :tada::+1:
   </summary>
   <br>
 
-Add [*Submodule*][git-scm-submodules] to your project (
-`git clone -b v1.0.0 https://github.com/malokhvii-eduard/arduino-bme280.git`).
+Add [*Submodule*][git-scm-submodules] to your project (`git submodule add
+https://github.com/malokhvii-eduard/arduino-bme280.git arduino-bme280`).
 Enjoy! :tada::+1:
 
 </details>
