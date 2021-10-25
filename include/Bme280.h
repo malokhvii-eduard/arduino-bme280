@@ -7,9 +7,17 @@
 #ifndef ARDUINO_BME280_UNIT_TEST
 /* Arduino */
 #include <Wire.h>
+
+#define __NOT_VIRTUAL_METHOD
 #else
 /* Mocks */
 #include <mocks/Wire.h>
+
+#define __NOT_VIRTUAL_METHOD virtual
+
+#define protected public
+#define private public
+#define final
 #endif
 
 enum class Bme280Mode : uint8_t { Sleep = 0b00, Forced = 0b01, Normal = 0b11 };
@@ -220,44 +228,21 @@ class AbstractBme280 : public Bme280 {
   float getPressure() const final;
   float getHumidity() const final;
 
-#ifndef ARDUINO_BME280_UNIT_TEST
   void setSettings(const Bme280Settings settings) final;
   void reset() final;
-#else
-  // Allows to check calls in setup()
-  void setSettings(const Bme280Settings settings);
-  void reset();
-#endif
 
   void sleep() final;
   void wakeUp() final;
   void wakeUpForced() final;
 
-#ifndef ARDUINO_BME280_UNIT_TEST
  protected:
-#endif
+  __NOT_VIRTUAL_METHOD void setup();
 
-#ifndef ARDUINO_BME280_UNIT_TEST
-  void setup();
-#else
-  // Allows to check that all implementations calls this method in begin()
-  virtual void setup();
-#endif
-
-#ifndef ARDUINO_BME280_UNIT_TEST
  private:
-#endif
-
   bool isMeasuring() const;
 
-#ifndef ARDUINO_BME280_UNIT_TEST
-  bool isImUpdate() const;
-  void readCalibrationData() const;
-#else
-  // Allows to check calls in setup()
-  virtual bool isImUpdate() const;
-  virtual void readCalibrationData() const;
-#endif
+  __NOT_VIRTUAL_METHOD bool isImUpdate() const;
+  __NOT_VIRTUAL_METHOD void readCalibrationData() const;
 
   virtual void write8(const uint8_t registerAddress, uint8_t value) = 0;
   virtual uint8_t read8(const uint8_t registerAddress) const = 0;
@@ -281,12 +266,7 @@ class AbstractBme280 : public Bme280 {
 
 enum class Bme280TwoWireAddress : uint8_t { Primary = 0x76, Secondary = 0x77 };
 
-#ifndef ARDUINO_BME280_UNIT_TEST
 class Bme280TwoWire final : public ::internal::AbstractBme280 {
-#else
-// Alows mocking this class
-class Bme280TwoWire : public ::internal::AbstractBme280 {
-#endif
  public:
   virtual ~Bme280TwoWire();
 
@@ -296,10 +276,7 @@ class Bme280TwoWire : public ::internal::AbstractBme280 {
 
   uint8_t getAddress() const;
 
-#ifndef ARDUINO_BME280_UNIT_TEST
  private:
-#endif
-
   void write8(const uint8_t registerAddress, uint8_t value);
   uint8_t read8(const uint8_t registerAddress) const;
   uint16_t read16(const uint8_t registerAddress) const;
@@ -310,5 +287,12 @@ class Bme280TwoWire : public ::internal::AbstractBme280 {
 };
 
 // TODO: class Bme280FourWire {};
+
+#undef __NOT_VIRTUAL_METHOD
+
+#ifdef ARDUINO_BME280_UNIT_TEST
+#undef protected
+#undef private
+#endif
 
 #endif  // ARDUINO_BME280_INCLUDE_BME280_H_
