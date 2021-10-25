@@ -114,9 +114,9 @@ in percentages (*symbol:* `%`).
 ### :raising_hand_man: Are there any settings presets out-of-the-box?
 
 :point_right: Yes. There are some settings presets out-of-the-box according to
-the recomendations in the [datasheet][bosch-sensortec-bme280]. You can create
-settings preset by call one of factory methods in `Bme280Settings`. The
-factory methods are listed below:
+the recomendations in the [datasheet][bosch-sensortec-bme280-datasheet]. You
+can create settings preset by call one of factory methods in `Bme280Settings`.
+The factory methods are listed below:
 
 - `Bme280Settings::indoor()`
 - `Bme280Settings::weatherMonitoring()`
