@@ -61,8 +61,6 @@ struct Bme280CalibrationData {
   int16_t digH4;   // Humidity compensation value
   int16_t digH5;   // Humidity compensation value
   int8_t digH6;    // Humidity compensation value
-
-  bool operator==(const Bme280CalibrationData &other) const;
 };
 
 struct Bme280Settings {
@@ -117,8 +115,6 @@ struct Bme280Settings {
   Bme280Oversampling humidityOversampling;
   Bme280Filter filter;
   Bme280StandbyTime standbyTime;
-
-  bool operator==(const Bme280Settings &other) const;
 };
 
 class Bme280 {

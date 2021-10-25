@@ -8,24 +8,6 @@
 #include <mocks/Arduino.h>
 #endif
 
-bool Bme280CalibrationData::operator==(
-    const Bme280CalibrationData &other) const {
-  return digT1 == other.digT1 && digT2 == other.digT2 && digT3 == other.digT3 &&
-         digP1 == other.digP1 && digP2 == other.digP2 && digP3 == other.digP3 &&
-         digP4 == other.digP4 && digP5 == other.digP5 && digP6 == other.digP6 &&
-         digP7 == other.digP7 && digP8 == other.digP8 && digP9 == other.digP9 &&
-         digH1 == other.digH1 && digH2 == other.digH2 && digH3 == other.digH3 &&
-         digH4 == other.digH4 && digH5 == other.digH5 && digH6 == other.digH6;
-}
-
-bool Bme280Settings::operator==(const Bme280Settings &other) const {
-  return mode == other.mode &&
-         temperatureOversampling == other.temperatureOversampling &&
-         pressureOversampling == other.pressureOversampling &&
-         humidityOversampling == other.humidityOversampling &&
-         filter == other.filter && standbyTime == other.standbyTime;
-}
-
 Bme280::~Bme280() {}
 
 namespace internal {

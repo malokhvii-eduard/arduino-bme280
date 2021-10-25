@@ -16,6 +16,24 @@ using ::testing::InSequence;
 using ::testing::Return;
 using ::testing::Values;
 
+bool operator==(const Bme280CalibrationData& l,
+                const Bme280CalibrationData& r) {
+  return l.digT1 == r.digT1 && l.digT2 == r.digT2 && l.digT3 == r.digT3 &&
+         l.digP1 == r.digP1 && l.digP2 == r.digP2 && l.digP3 == r.digP3 &&
+         l.digP4 == r.digP4 && l.digP5 == r.digP5 && l.digP6 == r.digP6 &&
+         l.digP7 == r.digP7 && l.digP8 == r.digP8 && l.digP9 == r.digP9 &&
+         l.digH1 == r.digH1 && l.digH2 == r.digH2 && l.digH3 == r.digH3 &&
+         l.digH4 == r.digH4 && l.digH5 == r.digH5 && l.digH6 == r.digH6;
+}
+
+bool operator==(const Bme280Settings& l, const Bme280Settings& r) {
+  return l.mode == r.mode &&
+         l.temperatureOversampling == r.temperatureOversampling &&
+         l.pressureOversampling == r.pressureOversampling &&
+         l.humidityOversampling == r.humidityOversampling &&
+         l.filter == r.filter && l.standbyTime == r.standbyTime;
+}
+
 const Bme280CalibrationData expectedCalibrationData = {.digT1 = 28780,
                                                        .digT2 = 26513,
                                                        .digT3 = 50,
