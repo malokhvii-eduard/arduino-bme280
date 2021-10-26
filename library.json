@@ -30,7 +30,7 @@
   "dependencies": {},
   "export": {
     "include": [
-      "LICENSE.md",
+      "LICENSE",
       "include",
       "src",
       "examples/**/*.ino"

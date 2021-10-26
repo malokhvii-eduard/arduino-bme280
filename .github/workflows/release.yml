@@ -30,7 +30,7 @@ jobs:
           mkdir -p Bme280/examples/TwoWire
           mkdir -p Bme280/examples/FourWire
           mkdir -p Bme280/examples/Settings
-          cp LICENSE.md Bme280
+          cp LICENSE Bme280
           cp library.properties Bme280
           cp include/Bme280.h Bme280/src
           cp src/Bme280.cc Bme280/src
