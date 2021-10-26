@@ -26,6 +26,7 @@
 [![Tested on Wemos D1](https://img.shields.io/badge/tested%20on-wemos%20d1-E7352C)][wemos-d1]
 ![Code Coverage](https://img.shields.io/badge/coverage-99.6%25-brightgreen)
 ![CI Workflow](https://github.com/malokhvii-eduard/arduino-bme280/actions/workflows/ci.yml/badge.svg)
+[![Release Workflow](https://github.com/malokhvii-eduard/arduino-bme280/actions/workflows/release.yml/badge.svg)](https://github.com/malokhvii-eduard/arduino-bme280/releases)
 
   </p>
 </div>
