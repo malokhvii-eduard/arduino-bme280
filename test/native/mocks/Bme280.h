@@ -28,4 +28,9 @@ class Bme280TwoWireMock : public Bme280TwoWire {
   MOCK_METHOD(void, setup, (), (override));
 };
 
+class Bme280FourWireMock : public Bme280FourWire {
+ public:
+  MOCK_METHOD(void, setup, (), (override));
+};
+
 #endif  // ARDUINO_BME280_TEST_NATIVE_MOCKS_BME280_H_
