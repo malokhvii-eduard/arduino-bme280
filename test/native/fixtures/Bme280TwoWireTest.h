@@ -13,7 +13,7 @@
 
 class Bme280TwoWireTest : public ::testing::Test {
  protected:
-  TwoWireMock wire;
+  ::testing::NiceMock<TwoWireMock> wire;
   Bme280TwoWireMock sensor;
 };
 
