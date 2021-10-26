@@ -11,7 +11,7 @@ using ::testing::Return;
 using ::testing::Values;
 
 TEST_F(Bme280TwoWireTest, BeginsWithoutAddressAndWire) {
-  EXPECT_CALL(sensor, setup()).Times(1);
+  EXPECT_CALL(sensor, setup());
 
   sensor.begin();
   EXPECT_EQ(sensor.wire_, &Wire);
