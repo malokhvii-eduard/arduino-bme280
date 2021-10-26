@@ -22,6 +22,7 @@ class AbstractBme280Test : public ::testing::Test {
     arduino = createArduinoMock();
     sensor.calibrationData_ = expectedCalibrationData;
   }
+
   void TearDown() override { destroyArduinoMock(); }
 
   ArduinoMock* arduino;
