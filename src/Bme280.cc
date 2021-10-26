@@ -291,3 +291,92 @@ uint32_t Bme280TwoWire::read24(const uint8_t registerAddress) const {
 
   return value;
 }
+
+Bme280FourWire::~Bme280FourWire() {}
+
+const SPISettings Bme280FourWire::spiSettings_ =
+    SPISettings(SPISettings(500000, MSBFIRST, SPI_MODE0));
+
+void Bme280FourWire::begin(const uint8_t csPin) { begin(csPin, &SPI); }
+
+void Bme280FourWire::begin(const uint8_t csPin, SPIClass *spi) {
+  spi_ = spi;
+  csPin_ = csPin;
+
+  pinMode(csPin_, OUTPUT);
+  digitalWrite(csPin_, HIGH);
+
+  setup();
+}
+
+uint8_t Bme280FourWire::getCsPin() const { return csPin_; }
+
+void Bme280FourWire::write8(const uint8_t registerAddress, uint8_t value) {
+  ControlByte control;
+  control.registerAddress = registerAddress;
+  control.rw = 0;
+
+  spi_->beginTransaction(spiSettings_);
+  digitalWrite(csPin_, LOW);
+
+  spi_->transfer(control.value);
+  spi_->transfer(value);
+
+  digitalWrite(csPin_, HIGH);
+  spi_->endTransaction();
+}
+
+uint8_t Bme280FourWire::read8(const uint8_t registerAddress) const {
+  ControlByte control;
+  control.registerAddress = registerAddress;
+  control.rw = 1;
+
+  spi_->beginTransaction(spiSettings_);
+  digitalWrite(csPin_, LOW);
+
+  spi_->transfer(control.value);
+  uint8_t value = spi_->transfer(0);
+
+  digitalWrite(csPin_, HIGH);
+  spi_->endTransaction();
+
+  return value;
+}
+
+uint16_t Bme280FourWire::read16(const uint8_t registerAddress) const {
+  ControlByte control;
+  control.registerAddress = registerAddress;
+  control.rw = 1;
+
+  spi_->beginTransaction(spiSettings_);
+  digitalWrite(csPin_, LOW);
+
+  spi_->transfer(control.value);
+  uint16_t value = (spi_->transfer(0) << 8) | spi_->transfer(0);
+
+  digitalWrite(csPin_, HIGH);
+  spi_->endTransaction();
+
+  return value;
+}
+
+uint32_t Bme280FourWire::read24(const uint8_t registerAddress) const {
+  ControlByte control;
+  control.registerAddress = registerAddress;
+  control.rw = 1;
+
+  spi_->beginTransaction(spiSettings_);
+  digitalWrite(csPin_, LOW);
+
+  spi_->transfer(control.value);
+  uint32_t value = spi_->transfer(0);
+  value <<= 8;
+  value |= spi_->transfer(0);
+  value <<= 8;
+  value |= spi_->transfer(0);
+
+  digitalWrite(csPin_, HIGH);
+  spi_->endTransaction();
+
+  return value;
+}

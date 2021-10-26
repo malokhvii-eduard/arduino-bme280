@@ -1,16 +1,17 @@
 #ifndef ARDUINO_BME280_INCLUDE_BME280_H_
 #define ARDUINO_BME280_INCLUDE_BME280_H_
 
-#include <math.h>
 #include <stdint.h>
 
 #ifndef ARDUINO_BME280_UNIT_TEST
 /* Arduino */
+#include <SPI.h>
 #include <Wire.h>
 
 #define __NOT_VIRTUAL_METHOD
 #else
 /* Mocks */
+#include <mocks/SPI.h>
 #include <mocks/Wire.h>
 
 #define __NOT_VIRTUAL_METHOD virtual
@@ -286,7 +287,33 @@ class Bme280TwoWire final : public ::internal::AbstractBme280 {
   TwoWire *wire_;
 };
 
-// TODO: class Bme280FourWire {};
+class Bme280FourWire final : public ::internal::AbstractBme280 {
+ public:
+  virtual ~Bme280FourWire();
+
+  void begin(const uint8_t csPin);
+  void begin(const uint8_t csPin, SPIClass *spi);
+
+  uint8_t getCsPin() const;
+
+ private:
+  union ControlByte {
+    struct {
+      uint8_t registerAddress : 7;
+      uint8_t rw : 1;
+    };
+    uint8_t value;
+  };
+
+  void write8(const uint8_t registerAddress, uint8_t value);
+  uint8_t read8(const uint8_t registerAddress) const;
+  uint16_t read16(const uint8_t registerAddress) const;
+  uint32_t read24(const uint8_t registerAddress) const;
+
+  uint8_t csPin_;
+  SPIClass *spi_;
+  static const SPISettings spiSettings_;
+};
 
 #undef __NOT_VIRTUAL_METHOD
 
