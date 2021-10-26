@@ -50,7 +50,7 @@
   </summary>
   <br>
 
-Run `pio lib install "malokhvii-eduard/arduino-bme280` or declare in
+Run `pio lib install "malokhvii-eduard/arduino-bme280"` or declare in
 `platformio.ini` configuration file using `lib_deps`
 [option][platformio-lib-deps]. Enjoy! :tada::+1:
 
