@@ -6,7 +6,10 @@
     "arduino",
     "bme280",
     "i2c",
-    "spi"
+    "spi",
+    "temperature",
+    "pressure",
+    "humidity"
   ],
   "license": "MIT",
   "authors": [
@@ -22,15 +25,13 @@
     "url": "https://github.com/malokhvii-eduard/arduino-bme280.git"
   },
   "frameworks": "arduino",
-  "platforms": "espressif8266,espressif32,atmelavr,atmelsam",
+  "platforms": "*",
   "dependencies": {},
   "export": {
     "include": [
       "LICENSE.md",
       "include",
-      "src"
-    ],
-    "exclude": [
+      "src",
       "examples/*"
     ]
   }
