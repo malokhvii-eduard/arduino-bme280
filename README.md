@@ -4,7 +4,7 @@
 <div align="center">
   <h2 align="center">💧 Arduino library for Bosch Sensortec BME280</h2>
   <p align="center">
-    The library allows using the sensor via
+    The library allows using the sensor over
     <a href="https://www.i2c-bus.org" aria-label="I2C Bus">I2C</a>
     or
     <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface"
@@ -24,7 +24,7 @@
 [![Tested on Arduino Nano](https://img.shields.io/badge/tested%20on-arduino%20nano-00979D)][arduino-nano]
 [![Tested on NodeMCU](https://img.shields.io/badge/tested%20on-nodemcu-E7352C)][nodemcu]
 [![Tested on Wemos D1](https://img.shields.io/badge/tested%20on-wemos%20d1-E7352C)][wemos-d1]
-![Code Coverage](https://img.shields.io/badge/coverage-99.6%25-brightgreen)
+![Code Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![CI Workflow](https://github.com/malokhvii-eduard/arduino-bme280/actions/workflows/ci.yml/badge.svg)
 [![Release Workflow](https://github.com/malokhvii-eduard/arduino-bme280/actions/workflows/release.yml/badge.svg)](https://github.com/malokhvii-eduard/arduino-bme280/releases)
 
@@ -35,9 +35,11 @@
 
 ## :tada: Features
 
-- Easy to use, Zero Dependencies, Ultra Light-Weight
-- Implements communication via [I2C][i2c] or [SPI][spi]
-- Tested on: [Arduino Uno][arduino-uno], [Arduino Nano][arduino-nano],
+- :rocket: Easy to use
+- :clamp: Zero dependencies
+- :gear: [I2C][i2c] or [SPI][spi]
+- :test_tube: 100% code coverage
+- :alembic: Tested on: [Arduino Uno][arduino-uno], [Arduino Nano][arduino-nano],
 [NodeMCU][nodemcu], [Wemos D1][wemos-d1]
 
 ## :sparkles: Getting Started
@@ -76,9 +78,9 @@ There are various [examples](https://github.com/malokhvii-eduard/arduino-bme280/
 to demonstrate usage of the library. The examples are listed below:
 
 - [TwoWire.ino](examples/TwoWire/TwoWire.ino) &ndash; read temperature,
-pressure, humidity via [I2C][i2c]
+pressure, humidity over [I2C][i2c]
 - [FourWire.ino](examples/FourWire/FourWire.ino) &ndash; read temperature,
-pressure, humidity via [SPI][spi]
+pressure, humidity over [SPI][spi]
 - [Settings.ino](examples/Settings/Settings.ino) &ndash; set different settings
 
 ## :question: FAQs
