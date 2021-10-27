@@ -116,6 +116,20 @@ TEST_F(AbstractBme280Test, GetsPressure) {
   EXPECT_FLOAT_EQ(sensor.getPressure(), 100958.73);
 }
 
+TEST_F(AbstractBme280Test, GetsPressureWhenZeroDivision) {
+  {
+    InSequence s;
+    EXPECT_CALL(sensor,
+                read24(::internal::Bme280RegisterAddressTemperatureData))
+        .WillOnce(Return(8408304));
+    EXPECT_CALL(sensor, read24(::internal::Bme280RegisterAddressPressureData))
+        .WillOnce(Return(6029792));
+  }
+
+  sensor.calibrationData_.digP1 = 0;  // Force zero division
+  EXPECT_FLOAT_EQ(sensor.getPressure(), 0);
+}
+
 TEST_F(AbstractBme280Test, GetsPressureWhenOversamplingOff) {
   {
     InSequence s;
