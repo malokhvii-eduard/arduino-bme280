@@ -12,9 +12,9 @@ void setup() {
 }
 
 void loop() {
-  const auto temperature = String(sensor.getTemperature()) + " °C";
-  const auto pressure = String(sensor.getPressure() / 100.0) + " hPa";
-  const auto humidity = String(sensor.getHumidity()) + " %";
+  auto temperature = String(sensor.getTemperature()) + " °C";
+  auto pressure = String(sensor.getPressure() / 100.0) + " hPa";
+  auto humidity = String(sensor.getHumidity()) + " %";
 
   String measurements = temperature + ", " + pressure + ", " + humidity;
   Serial.println(measurements);
