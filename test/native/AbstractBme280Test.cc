@@ -4,9 +4,6 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-/* Mocks */
-#include <mocks/Arduino.h>
-
 /* Fixtures */
 #include <fixtures/AbstractBme280Test.h>
 
