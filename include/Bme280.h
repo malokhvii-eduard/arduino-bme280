@@ -320,6 +320,7 @@ class Bme280FourWire final : public ::internal::AbstractBme280 {
 #ifdef ARDUINO_BME280_UNIT_TEST
 #undef protected
 #undef private
+#undef final
 #endif
 
 #endif  // ARDUINO_BME280_INCLUDE_BME280_H_
