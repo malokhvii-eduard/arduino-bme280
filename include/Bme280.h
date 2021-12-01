@@ -8,13 +8,13 @@
 #include <SPI.h>
 #include <Wire.h>
 
-#define __NOT_VIRTUAL_METHOD
+#define __NOT_VIRTUAL
 #else
 /* Mocks */
 #include <mocks/SPI.h>
 #include <mocks/Wire.h>
 
-#define __NOT_VIRTUAL_METHOD virtual
+#define __NOT_VIRTUAL virtual
 
 #define protected public
 #define private public
@@ -237,13 +237,13 @@ class AbstractBme280 : public Bme280 {
   void wakeUpForced() final;
 
  protected:
-  __NOT_VIRTUAL_METHOD void setup();
+  __NOT_VIRTUAL void setup();
 
  private:
   bool isMeasuring() const;
 
-  __NOT_VIRTUAL_METHOD bool isImUpdate() const;
-  __NOT_VIRTUAL_METHOD void readCalibrationData() const;
+  __NOT_VIRTUAL bool isImUpdate() const;
+  __NOT_VIRTUAL void readCalibrationData() const;
 
   virtual void write8(const uint8_t registerAddress, uint8_t value) = 0;
   virtual uint8_t read8(const uint8_t registerAddress) const = 0;
@@ -269,6 +269,7 @@ enum class Bme280TwoWireAddress : uint8_t { Primary = 0x76, Secondary = 0x77 };
 
 class Bme280TwoWire final : public ::internal::AbstractBme280 {
  public:
+  Bme280TwoWire();
   virtual ~Bme280TwoWire();
 
   void begin();
@@ -289,6 +290,7 @@ class Bme280TwoWire final : public ::internal::AbstractBme280 {
 
 class Bme280FourWire final : public ::internal::AbstractBme280 {
  public:
+  Bme280FourWire();
   virtual ~Bme280FourWire();
 
   void begin(const uint8_t csPin);
@@ -315,7 +317,7 @@ class Bme280FourWire final : public ::internal::AbstractBme280 {
   static const SPISettings spiSettings_;
 };
 
-#undef __NOT_VIRTUAL_METHOD
+#undef __NOT_VIRTUAL
 
 #ifdef ARDUINO_BME280_UNIT_TEST
 #undef protected

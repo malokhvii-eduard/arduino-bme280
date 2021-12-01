@@ -236,6 +236,8 @@ int16_t AbstractBme280::read16SignedLittleEndian(
 
 }  // namespace internal
 
+Bme280TwoWire::Bme280TwoWire() : wire_(nullptr) {}
+
 Bme280TwoWire::~Bme280TwoWire() {}
 
 void Bme280TwoWire::begin() { begin(Bme280TwoWireAddress::Primary); }
@@ -253,6 +255,8 @@ void Bme280TwoWire::begin(const Bme280TwoWireAddress address, TwoWire *wire) {
 uint8_t Bme280TwoWire::getAddress() const { return address_; }
 
 void Bme280TwoWire::write8(const uint8_t registerAddress, uint8_t value) {
+  assert(wire_ != nullptr);
+
   wire_->beginTransmission(address_);
   wire_->write(registerAddress);
   wire_->write(value);
@@ -260,6 +264,8 @@ void Bme280TwoWire::write8(const uint8_t registerAddress, uint8_t value) {
 }
 
 uint8_t Bme280TwoWire::read8(const uint8_t registerAddress) const {
+  assert(wire_ != nullptr);
+
   wire_->beginTransmission(address_);
   wire_->write(registerAddress);
   wire_->endTransmission();
@@ -269,6 +275,8 @@ uint8_t Bme280TwoWire::read8(const uint8_t registerAddress) const {
 }
 
 uint16_t Bme280TwoWire::read16(const uint8_t registerAddress) const {
+  assert(wire_ != nullptr);
+
   wire_->beginTransmission(address_);
   wire_->write(registerAddress);
   wire_->endTransmission();
@@ -278,6 +286,8 @@ uint16_t Bme280TwoWire::read16(const uint8_t registerAddress) const {
 }
 
 uint32_t Bme280TwoWire::read24(const uint8_t registerAddress) const {
+  assert(wire_ != nullptr);
+
   wire_->beginTransmission(address_);
   wire_->write(registerAddress);
   wire_->endTransmission();
@@ -291,6 +301,8 @@ uint32_t Bme280TwoWire::read24(const uint8_t registerAddress) const {
 
   return value;
 }
+
+Bme280FourWire::Bme280FourWire() : spi_(nullptr) {}
 
 Bme280FourWire::~Bme280FourWire() {}
 
@@ -312,6 +324,8 @@ void Bme280FourWire::begin(const uint8_t csPin, SPIClass *spi) {
 uint8_t Bme280FourWire::getCsPin() const { return csPin_; }
 
 void Bme280FourWire::write8(const uint8_t registerAddress, uint8_t value) {
+  assert(spi_ != nullptr);
+
   ControlByte control;
   control.registerAddress = registerAddress;
   control.rw = 0;
@@ -327,6 +341,8 @@ void Bme280FourWire::write8(const uint8_t registerAddress, uint8_t value) {
 }
 
 uint8_t Bme280FourWire::read8(const uint8_t registerAddress) const {
+  assert(spi_ != nullptr);
+
   ControlByte control;
   control.registerAddress = registerAddress;
   control.rw = 1;
@@ -344,6 +360,8 @@ uint8_t Bme280FourWire::read8(const uint8_t registerAddress) const {
 }
 
 uint16_t Bme280FourWire::read16(const uint8_t registerAddress) const {
+  assert(spi_ != nullptr);
+
   ControlByte control;
   control.registerAddress = registerAddress;
   control.rw = 1;
@@ -361,6 +379,8 @@ uint16_t Bme280FourWire::read16(const uint8_t registerAddress) const {
 }
 
 uint32_t Bme280FourWire::read24(const uint8_t registerAddress) const {
+  assert(spi_ != nullptr);
+
   ControlByte control;
   control.registerAddress = registerAddress;
   control.rw = 1;
