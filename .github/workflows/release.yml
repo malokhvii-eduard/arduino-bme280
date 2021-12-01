@@ -1,30 +1,22 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - "v*"
+  workflow_run:
+    workflows: ["CI"]
+    branches: [master]
+    types:
+      - completed
 
 jobs:
-  release:
-    name: 🔖 Release
+  semantic-release:
+    name: 📦🚀 Semantic Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: true
-          prerelease: false
       - name: Install Zip
         run: sudo apt-get install zip
-      - name: Convert library to Arduino IDE compatible format
+      - name: Create library in compatible format for Arduino IDE
         run: |
           mkdir -p Bme280/src
           mkdir -p Bme280/examples/TwoWire
@@ -38,12 +30,11 @@ jobs:
           cp examples/FourWire/*.ino Bme280/examples/FourWire
           cp examples/Settings/*.ino Bme280/examples/Settings
           zip -r Bme280.zip Bme280/*
-      - name: Add release asset Bme280.zip
-        uses: actions/upload-release-asset@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+      - name: Install plugins for semantic-release
+        run: npm install @semantic-release/git
+      - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_name: Bme280.zip
-          asset_path: ./Bme280.zip
-          asset_content_type: application/zip
+        run: npx semantic-release
