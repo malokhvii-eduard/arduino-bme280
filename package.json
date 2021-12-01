@@ -1,0 +1,64 @@
+{
+  "private": true,
+  "scripts": {
+    "postinstall": "is-ci || husky install",
+    "prepare": "is-ci || husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.md": "markdownlint",
+    "*.{h,cc,cpp}": "clang-format --dry-run -Werror"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "Bme280.zip",
+              "label": "Bme280.zip"
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ],
+          "message": "build: release ${nextRelease.version}"
+        }
+      ]
+    ],
+    "branches": [
+      "master"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "clang-format": "^1.6.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.0",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^12.1.2",
+    "markdownlint-cli": "^0.30.0",
+    "semantic-release": "^18.0.1"
+  }
+}
