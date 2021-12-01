@@ -32,8 +32,6 @@ jobs:
           zip -r Bme280.zip Bme280/*
       - name: Use Node.js
         uses: actions/setup-node@v2
-      - name: Install plugins for semantic-release
-        run: npm install @semantic-release/git
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ github.token }}
