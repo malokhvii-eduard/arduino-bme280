@@ -17,9 +17,13 @@
   <p id="shields" align="center" markdown="1">
 
 [![License](https://img.shields.io/badge/license-MIT-3178C6?style=flat)](LICENSE)
+[![Husky](https://img.shields.io/badge/husky-enabled-brightgreen?style=flat)][github-husky]
+[![Commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen)][github-commitizen]
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)][github-semantic-release]
 [![Style Guide](https://img.shields.io/badge/code%20style-~google-4285F4?style=flat)][google-cppguide]
 ![clang-format](https://img.shields.io/badge/formatter-clang--format-262D3A?style=flat)
 [![markdownlint](https://img.shields.io/badge/linter-markdownlint-000?style=flat)][github-markdownlint]
+[![commitlint](https://img.shields.io/badge/linter-commitlint-F7B93E?style=flat)][github-commitlint]
 [![Tested on Arduino Uno](https://img.shields.io/badge/tested%20on-arduino%20uno-00979D)][arduino-uno]
 [![Tested on Arduino Nano](https://img.shields.io/badge/tested%20on-arduino%20nano-00979D)][arduino-nano]
 [![Tested on NodeMCU](https://img.shields.io/badge/tested%20on-nodemcu-E7352C)][nodemcu]
@@ -140,8 +144,11 @@ to see the behavior of all library members.
 [![Arduino](https://img.shields.io/badge/Arduino-00979D?logo=arduino&logoColor=fff&style=flat)][github-arduino]
 [![Google Test](https://img.shields.io/badge/Google%20Test-4285F4?logo=google&logoColor=fff&style=flat)][github-googletest]
 [![gcovr](https://img.shields.io/badge/gcovr-A42E2B?logo=gnu&logoColor=fff&style=flat)][github-gcovr]
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff&style=flat)][github-npm]
 ![clang-format](https://img.shields.io/badge/clang--format-262D3A?logo=llvm&logoColor=fff&style=flat)
 [![markdownlint](https://img.shields.io/badge/markdownlint-000?logo=markdown&logoColor=fff&style=flat)][github-markdownlint]
+[![commitlint](https://img.shields.io/badge/commitlint-F7B93E?logo=c&logoColor=000&style=flat)][github-commitlint]
+[![semantic-release](https://img.shields.io/badge/semantic--release-494949?logo=semanticrelease&logoColor=fff&style=flat)][github-semantic-release]
 [![BME280](https://img.shields.io/badge/BME280-EA0016?logo=bosch&logoColor=fff&style=flat)][bosch-sensortec-bme280]
 [![Shields.io](https://img.shields.io/badge/Shields.io-000?logo=shieldsdotio&logoColor=fff&style=flat)][shields]
 [![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff&style=flat)][git-scm]
@@ -177,11 +184,16 @@ for more information.
 [github-actions]: https://docs.github.com/en/actions
 [github-arduino-ide]:  https://github.com/arduino/Arduino
 [github-arduino]: https://github.com/arduino
+[github-commitizen]: https://github.com/commitizen/cz-cli
+[github-commitlint]: https://github.com/conventional-changelog/commitlint
 [github-gcovr]: https://github.com/gcovr/gcovr
 [github-googletest]: https://github.com/google/googletest
+[github-husky]: https://github.com/typicode/husky
 [github-linux]: https://github.com/torvalds/linux
 [github-markdownlint]: https://github.com/DavidAnson/markdownlint
+[github-npm]: https://github.com/npm/cli
 [github-platformio]: https://github.com/platformio
+[github-semantic-release]: https://github.com/semantic-release/semantic-release
 [github-simple-icons]: https://github.com/simple-icons/simple-icons
 [github]: https://github.com
 
