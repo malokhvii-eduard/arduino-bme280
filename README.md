@@ -146,6 +146,7 @@ to see the behavior of all library members.
 [![gcovr](https://img.shields.io/badge/gcovr-A42E2B?logo=gnu&logoColor=fff&style=flat)][github-gcovr]
 [![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff&style=flat)][github-npm]
 ![clang-format](https://img.shields.io/badge/clang--format-262D3A?logo=llvm&logoColor=fff&style=flat)
+[![Prettier](https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=fff&style=flat)][github-prettier]
 [![markdownlint](https://img.shields.io/badge/markdownlint-000?logo=markdown&logoColor=fff&style=flat)][github-markdownlint]
 [![commitlint](https://img.shields.io/badge/commitlint-F7B93E?logo=c&logoColor=000&style=flat)][github-commitlint]
 [![semantic-release](https://img.shields.io/badge/semantic--release-494949?logo=semanticrelease&logoColor=fff&style=flat)][github-semantic-release]
@@ -193,6 +194,7 @@ for more information.
 [github-markdownlint]: https://github.com/DavidAnson/markdownlint
 [github-npm]: https://github.com/npm/cli
 [github-platformio]: https://github.com/platformio
+[github-prettier]: https://github.com/prettier/prettier
 [github-semantic-release]: https://github.com/semantic-release/semantic-release
 [github-simple-icons]: https://github.com/simple-icons/simple-icons
 [github]: https://github.com
