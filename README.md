@@ -37,18 +37,18 @@
 
 ---
 
-## :tada: Features
+## 🎉 Features
 
-- :rocket: Easy to use
-- :clamp: Zero dependencies
-- :gear: [I2C][i2c] or [SPI][spi]
-- :test_tube: 100% code coverage
-- :alembic: Tested on: [Arduino Uno][arduino-uno], [Arduino Nano][arduino-nano],
+- 🚀 Easy to use
+- 🗜️ Zero dependencies
+- ⚙️ [I2C][i2c] or [SPI][spi]
+- 🧪 100% code coverage
+- ⚗️ Tested on: [Arduino Uno][arduino-uno], [Arduino Nano][arduino-nano],
 [NodeMCU][nodemcu], [Wemos D1][wemos-d1]
 
-## :sparkles: Getting Started
+## ✨ Getting Started
 
-### :package: Installation
+### 📦 Installation
 
 <details>
   <summary>
@@ -58,7 +58,7 @@
 
 Run `pio lib install "malokhvii-eduard/arduino-bme280"` or declare in
 `platformio.ini` configuration file using `lib_deps`
-[option][platformio-lib-deps]. Enjoy! :tada::+1:
+[option][platformio-lib-deps]. Enjoy! 🎉👍
 
 </details>
 
@@ -72,11 +72,11 @@ Download `Bme280.zip` from release assets. Once downloaded, go to the
 [Arduino IDE][github-arduino-ide] and click
 `Sketch > Include Library > Add .zip Library`. In the file dialogue that opens,
 locate your downloaded ZIP file. Afterward, you should receive a
-`Library Added` message just above the debug window. Enjoy! :tada::+1:
+`Library Added` message just above the debug window. Enjoy! 🎉👍
 
 </details>
 
-### :eyes: Usage
+### 👀 Usage
 
 There are various [examples](https://github.com/malokhvii-eduard/arduino-bme280/tree/master/examples)
 to demonstrate usage of the library. The examples are listed below:
@@ -87,21 +87,21 @@ pressure, humidity over [I2C][i2c]
 pressure, humidity over [SPI][spi]
 - [Settings.ino](examples/Settings/Settings.ino) &ndash; set different settings
 
-## :question: FAQs
+## ❓ FAQs
 
 <!-- FAQ 1 -->
 <!-- markdownlint-disable MD013 -->
-### :raising_hand_man: In which units temperature, pressure, humidity are measured?
+### 🙋‍♂️ In which units temperature, pressure, humidity are measured?
 <!-- markdownlint-enable MD013 -->
 
-:point_right: The temperature is measured in degrees Celsius (*symbol:* `°C`).
+👉 The temperature is measured in degrees Celsius (*symbol:* `°C`).
 The pressure is measured in pascals (*symbol:* `Pa`). The humidity is measured
 in percentages (*symbol:* `%`).
 
 <!-- FAQ 2 -->
-### :raising_hand_man: What settings are used by default?
+### 🙋‍♂️ What settings are used by default?
 
-:point_right: The default settings are:
+👉 The default settings are:
 
 - mode &ndash; `Bme280Mode::Normal`
 - temperature oversampling &ndash; `Bme280Oversampling::X16`
@@ -111,9 +111,9 @@ in percentages (*symbol:* `%`).
 - standby time &ndash; `Bme280StandbyTime::Ms0_5`
 
 <!-- FAQ 3 -->
-### :raising_hand_man: Are there any settings presets out-of-the-box?
+### 🙋‍♂️ Are there any settings presets out-of-the-box?
 
-:point_right: Yes. There are some settings presets out-of-the-box according to
+👉 Yes. There are some settings presets out-of-the-box according to
 the recomendations in the [datasheet][bosch-sensortec-bme280-datasheet]. You
 can create settings preset by call one of factory methods in `Bme280Settings`.
 The factory methods are listed below:
@@ -124,17 +124,17 @@ The factory methods are listed below:
 - `Bme280Settings::humiditySensing()`
 
 <!-- FAQ 4 -->
-### :raising_hand_man: How to off one of any measurements?
+### 🙋‍♂️ How to off one of any measurements?
 
-:point_right: Assign `Bme280Oversampling::Off` to an oversampling in settings.
+👉 Assign `Bme280Oversampling::Off` to an oversampling in settings.
 
 <!-- FAQ 5 -->
-### :raising_hand_man: How does it work?
+### 🙋‍♂️ How does it work?
 
-:point_right: You can explore [unit tests](https://github.com/malokhvii-eduard/arduino-bme280/tree/master/test/native)
+👉 You can explore [unit tests](https://github.com/malokhvii-eduard/arduino-bme280/tree/master/test/native)
 to see the behavior of all library members.
 
-## :hammer_and_wrench: Tech Stack
+## 🛠️ Tech Stack
 
 <!-- markdownlint-disable MD013 -->
 [![EditorConfig](https://img.shields.io/badge/EditorConfig-FEFEFE?logo=editorconfig&logoColor=000&style=flat)][editorconfig]
@@ -156,9 +156,9 @@ to see the behavior of all library members.
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=githubactions&logoColor=fff&style=flat)][github-actions]
 <!-- markdownlint-enable MD013 -->
 
-## :writing_hand: Contributing
+## ✍️ Contributing
 
-:+1::tada: *First off, thanks for taking the time to contribute!* :tada::+1:
+👍🎉 *First off, thanks for taking the time to contribute!* 🎉👍
 
 Contributions are what make the open source community such an amazing place to
 be learn, inspire, and create. Any contributions you make are **greatly
@@ -170,11 +170,11 @@ appreciated**.
 4. Push to the *Branch* (`git push origin feature/awesome-feature`)
 5. Open a *Pull Request*
 
-## :sparkling_heart: Like this project?
+## 💖 Like this project?
 
 Leave a :star: if you think this project is cool or useful for you.
 
-## :warning: License
+## ⚠️ License
 
 `arduino-bme280` is licenced under the MIT License. See the [LICENSE](LICENSE)
 for more information.
