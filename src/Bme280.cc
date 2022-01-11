@@ -1,4 +1,5 @@
 #include <Bme280.h>
+#include <assert.h>
 
 #ifndef ARDUINO_BME280_UNIT_TEST
 /* Arduino */
