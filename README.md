@@ -173,7 +173,7 @@ appreciated**.
 
 ## 💖 Like this project?
 
-Leave a :star: if you think this project is cool or useful for you.
+Leave a ⭐ if you think this project is cool or useful for you.
 
 ## ⚠️ License
 
