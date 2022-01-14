@@ -190,13 +190,11 @@ for more information.
 [github-gcovr]: https://github.com/gcovr/gcovr
 [github-googletest]: https://github.com/google/googletest
 [github-husky]: https://github.com/typicode/husky
-[github-linux]: https://github.com/torvalds/linux
 [github-markdownlint]: https://github.com/DavidAnson/markdownlint
 [github-npm]: https://github.com/npm/cli
 [github-platformio]: https://github.com/platformio
 [github-prettier]: https://github.com/prettier/prettier
 [github-semantic-release]: https://github.com/semantic-release/semantic-release
-[github-simple-icons]: https://github.com/simple-icons/simple-icons
 [github]: https://github.com
 
 <!-- Other links -->
