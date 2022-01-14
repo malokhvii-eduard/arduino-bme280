@@ -35,8 +35,6 @@
   </p>
 </div>
 
----
-
 ## 🎉 Features
 
 - 🚀 Easy to use
