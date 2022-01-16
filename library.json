@@ -29,6 +29,6 @@
   "platforms": "*",
   "dependencies": {},
   "export": {
-    "include": ["LICENSE", "include", "src", "examples/**/*.ino"]
+    "include": ["LICENSE", "src", "examples/**/*.ino"]
   }
 }
