@@ -19,7 +19,6 @@ jobs:
         run: sudo apt-get install clang-format
       - name: Check code style
         run: |
-          find include -type f | xargs clang-format --dry-run -Werror
           find src -type f | xargs clang-format --dry-run -Werror
           find test -type f | xargs clang-format --dry-run -Werror
       - name: Use Node.js
@@ -30,6 +29,8 @@ jobs:
         run: markdownlint .
       - name: Check compliance with Arduino library specification
         uses: arduino/arduino-lint-action@v1
+        with:
+          library-manager: update
 
   test:
     name: 🧪 Test
