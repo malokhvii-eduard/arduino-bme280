@@ -28,6 +28,8 @@ jobs:
         run: npm install -g markdownlint-cli
       - name: Check Markdown files
         run: markdownlint .
+      - name: Check compliance with Arduino library specification
+        uses: arduino/arduino-lint-action@v1
 
   test:
     name: 🧪 Test
