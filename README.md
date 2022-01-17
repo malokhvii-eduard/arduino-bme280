@@ -62,7 +62,7 @@ Run `pio lib install "malokhvii-eduard/arduino-bme280"` or declare in
 
 <details>
   <summary>
-    👉 Arduino Library Manager
+    👉 Arduino IDE (Library Manager)
   </summary>
   <br>
 
@@ -75,7 +75,7 @@ enter search query `Bme280`. Afterward, find a library
 
 <details>
   <summary>
-    👉 Arduino IDE
+    👉 Arduino IDE (Manual)
   </summary>
   <br>
 
