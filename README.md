@@ -62,6 +62,19 @@ Run `pio lib install "malokhvii-eduard/arduino-bme280"` or declare in
 
 <details>
   <summary>
+    👉 Arduino Library Manager
+  </summary>
+  <br>
+
+Go to the [Arduino IDE][github-arduino-ide] and click
+`Tools > Manage Libraries`. In the library manager dialogue that opens,
+enter search query `Bme280`. Afterward, find a library
+`Bme280 by Eduard Malokhvii` and click `Install`. Enjoy! 🎉👍
+
+</details>
+
+<details>
+  <summary>
     👉 Arduino IDE
   </summary>
   <br>
