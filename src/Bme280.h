@@ -272,8 +272,10 @@ class Bme280TwoWire final : public ::internal::AbstractBme280 {
   Bme280TwoWire();
   virtual ~Bme280TwoWire();
 
+#if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_TWOWIRE)
   void begin();
   void begin(const Bme280TwoWireAddress address);
+#endif
   void begin(const Bme280TwoWireAddress address, TwoWire *wire);
 
   uint8_t getAddress() const;
@@ -293,7 +295,9 @@ class Bme280FourWire final : public ::internal::AbstractBme280 {
   Bme280FourWire();
   virtual ~Bme280FourWire();
 
+#if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_SPI)
   void begin(const uint8_t csPin);
+#endif
   void begin(const uint8_t csPin, SPIClass *spi);
 
   uint8_t getCsPin() const;
