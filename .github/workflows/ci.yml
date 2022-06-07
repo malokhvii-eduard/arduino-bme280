@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - "*"
+      - '*'
     tags-ignore:
       - v*
   pull_request:
@@ -55,15 +55,15 @@ jobs:
       - name: Use Python
         uses: actions/setup-python@v2
       - name: Install PlatformIO Core
-        run: pip install -U platformio
+        run: pip install -U platformio==6.0.2
       - name: Run tests
-        run: pio test
+        run: pio test -v
       - name: Install Gcovr
         run: pip install gcovr
       - name: Generate code coverage
         run: |
           mkdir code-coverage
-          rm .pio/build/native/test/tmp_pio_test_transport.*
+          rm -r .pio/build/native/unity_config_build
           gcovr -r . -e .pio/libdeps -e test -s
           gcovr -r . -e .pio/libdeps -e test --html-details -o code-coverage/coverage.html
       - name: Upload code coverage as artifact
