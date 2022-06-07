@@ -241,11 +241,15 @@ Bme280TwoWire::Bme280TwoWire() : wire_(nullptr) {}
 
 Bme280TwoWire::~Bme280TwoWire() {}
 
+#if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_TWOWIRE)
+
 void Bme280TwoWire::begin() { begin(Bme280TwoWireAddress::Primary); }
 
 void Bme280TwoWire::begin(const Bme280TwoWireAddress address) {
   begin(address, &Wire);
 }
+
+#endif
 
 void Bme280TwoWire::begin(const Bme280TwoWireAddress address, TwoWire *wire) {
   address_ = static_cast<uint8_t>(address);
@@ -310,7 +314,11 @@ Bme280FourWire::~Bme280FourWire() {}
 const SPISettings Bme280FourWire::spiSettings_ =
     SPISettings(SPISettings(500000, MSBFIRST, SPI_MODE0));
 
+#if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_SPI)
+
 void Bme280FourWire::begin(const uint8_t csPin) { begin(csPin, &SPI); }
+
+#endif
 
 void Bme280FourWire::begin(const uint8_t csPin, SPIClass *spi) {
   spi_ = spi;
