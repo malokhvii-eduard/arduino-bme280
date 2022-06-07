@@ -142,7 +142,7 @@ The factory methods are listed below:
 <!-- FAQ 5 -->
 ### 🙋‍♂️ How does it work?
 
-👉 You can explore [unit tests](https://github.com/malokhvii-eduard/arduino-bme280/tree/master/test/native)
+👉 You can explore [unit tests](https://github.com/malokhvii-eduard/arduino-bme280/tree/master/test/test_native)
 to see the behavior of all library members.
 
 ## 🛠️ Tech Stack
