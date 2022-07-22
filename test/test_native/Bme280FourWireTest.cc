@@ -20,10 +20,10 @@ TEST_P(Bme280FourWireTestWithCsPin, BeginsWithCsPinAndWithoutSpi) {
     InSequence s;
     EXPECT_CALL(*arduino, pinMode(csPin, OUTPUT));
     EXPECT_CALL(*arduino, digitalWrite(csPin, HIGH));
-    EXPECT_CALL(sensor, setup());
+    EXPECT_CALL(sensor, setup()).WillOnce(Return(true));
   }
 
-  sensor.begin(csPin);
+  EXPECT_TRUE(sensor.begin(csPin));
   EXPECT_EQ(sensor.spi_, &SPI);
   EXPECT_EQ(sensor.csPin_, csPin);
 }
@@ -33,10 +33,10 @@ TEST_P(Bme280FourWireTestWithCsPin, BeginsWithCsPinAndSpi) {
     InSequence s;
     EXPECT_CALL(*arduino, pinMode(csPin, OUTPUT));
     EXPECT_CALL(*arduino, digitalWrite(csPin, HIGH));
-    EXPECT_CALL(sensor, setup());
+    EXPECT_CALL(sensor, setup()).WillOnce(Return(true));
   }
 
-  sensor.begin(csPin, &spi);
+  EXPECT_TRUE(sensor.begin(csPin, &spi));
   EXPECT_EQ(sensor.spi_, &spi);
   EXPECT_EQ(sensor.csPin_, csPin);
 }

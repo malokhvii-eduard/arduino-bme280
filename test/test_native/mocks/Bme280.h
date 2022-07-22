@@ -25,12 +25,12 @@ class AbstractBme280MockAlt : public AbstractBme280Mock {
 
 class Bme280TwoWireMock : public Bme280TwoWire {
  public:
-  MOCK_METHOD(void, setup, (), (override));
+  MOCK_METHOD(bool, setup, (), (override));
 };
 
 class Bme280FourWireMock : public Bme280FourWire {
  public:
-  MOCK_METHOD(void, setup, (), (override));
+  MOCK_METHOD(bool, setup, (), (override));
 };
 
 #endif  // ARDUINO_BME280_TEST_NATIVE_MOCKS_BME280_H_

@@ -54,6 +54,10 @@ TEST_F(AbstractBme280TestAlt, Setups) {
   EXPECT_CALL(sensor, read8(::internal::Bme280RegisterAddressChipId));
   EXPECT_CALL(sensor, reset());
 
+  EXPECT_CALL(*arduino, millis())
+      .WillOnce(Return(0))
+      .WillOnce(Return(1000))
+      .WillOnce(Return(2000));
   EXPECT_CALL(sensor, isImUpdate())
       .WillOnce(Return(true))
       .WillOnce(Return(true))
@@ -63,8 +67,23 @@ TEST_F(AbstractBme280TestAlt, Setups) {
   EXPECT_CALL(sensor, readCalibrationData());
   EXPECT_CALL(sensor, setSettings(Bme280Settings::defaults()));
 
-  sensor.setup();
+  EXPECT_TRUE(sensor.setup());
   EXPECT_EQ(sensor.chipId_, 0);
+}
+
+TEST_F(AbstractBme280TestAlt, SetupsWhenTimeout) {
+  EXPECT_CALL(sensor, read8(::internal::Bme280RegisterAddressChipId));
+  EXPECT_CALL(sensor, reset());
+
+  EXPECT_CALL(*arduino, millis())
+      .WillOnce(Return(0))
+      .WillOnce(Return(1000))
+      .WillOnce(Return(5000))
+      .WillOnce(Return(15000));
+  EXPECT_CALL(sensor, isImUpdate()).WillRepeatedly(Return(true));
+  EXPECT_CALL(*arduino, delay(_)).Times(3);
+
+  EXPECT_FALSE(sensor.setup());
 }
 
 TEST_P(AbstractBme280TestWithChipId, GetsChipId) {

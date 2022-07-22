@@ -11,26 +11,26 @@ using ::testing::Return;
 using ::testing::Values;
 
 TEST_F(Bme280TwoWireTest, BeginsWithoutAddressAndWire) {
-  EXPECT_CALL(sensor, setup());
+  EXPECT_CALL(sensor, setup()).WillOnce(Return(true));
 
-  sensor.begin();
+  EXPECT_TRUE(sensor.begin());
   EXPECT_EQ(sensor.wire_, &Wire);
   EXPECT_EQ(sensor.address_,
             static_cast<uint8_t>(Bme280TwoWireAddress::Primary));
 }
 
 TEST_P(Bme280TwoWireTestWithAddress, BeginsWithAddressAndWithoutWire) {
-  EXPECT_CALL(sensor, setup());
+  EXPECT_CALL(sensor, setup()).WillOnce(Return(true));
 
-  sensor.begin(GetParam());
+  EXPECT_TRUE(sensor.begin(GetParam()));
   EXPECT_EQ(sensor.wire_, &Wire);
   EXPECT_EQ(sensor.address_, address);
 }
 
 TEST_P(Bme280TwoWireTestWithAddress, BeginsWithAddressAndWire) {
-  EXPECT_CALL(sensor, setup());
+  EXPECT_CALL(sensor, setup()).WillOnce(Return(true));
 
-  sensor.begin(GetParam(), &wire);
+  EXPECT_TRUE(sensor.begin(GetParam(), &wire));
   EXPECT_EQ(sensor.wire_, &wire);
   EXPECT_EQ(sensor.address_, address);
 }
