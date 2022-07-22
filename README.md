@@ -220,8 +220,6 @@ for more information.
 [i2c]: https://www.i2c-bus.org
 [nodemcu]: https://en.wikipedia.org/wiki/NodeMCU
 [platformio-lib-deps]: https://docs.platformio.org/en/latest/projectconf/section_env_library.html#lib-deps
-[platformio-lib-install]: https://docs.platformio.org/en/latest/core/userguide/lib/cmd_install.html
-[platformio-registry]: https://platformio.org/lib
 [shields]: https://shields.io
 [spi]: https://en.wikipedia.org/wiki/Serial_Peripheral_Interface
 [wemos-d1]: https://www.wemos.cc/en/latest/d1/d1_mini.html
