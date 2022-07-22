@@ -166,18 +166,25 @@ void AbstractBme280::wakeUpForced() {
   setSettings(settings);
 }
 
-void AbstractBme280::setup() {
+bool AbstractBme280::setup() {
   chipId_ = read8(Bme280RegisterAddressChipId);
 
   reset();
   delay(10);
 
+  const uint32_t startTime = millis();
   while (isImUpdate()) {
+    if (millis() - startTime >= ARDUINO_BME280_TIMEOUT) {
+      return false;
+    }
+
     delay(20);
   }
 
   readCalibrationData();
   setSettings(Bme280Settings::defaults());
+
+  return true;
 }
 
 bool AbstractBme280::isImUpdate() const {
@@ -243,18 +250,18 @@ Bme280TwoWire::~Bme280TwoWire() {}
 
 #if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_TWOWIRE)
 
-void Bme280TwoWire::begin() { begin(Bme280TwoWireAddress::Primary); }
+bool Bme280TwoWire::begin() { return begin(Bme280TwoWireAddress::Primary); }
 
-void Bme280TwoWire::begin(const Bme280TwoWireAddress address) {
-  begin(address, &Wire);
+bool Bme280TwoWire::begin(const Bme280TwoWireAddress address) {
+  return begin(address, &Wire);
 }
 
 #endif
 
-void Bme280TwoWire::begin(const Bme280TwoWireAddress address, TwoWire *wire) {
+bool Bme280TwoWire::begin(const Bme280TwoWireAddress address, TwoWire *wire) {
   address_ = static_cast<uint8_t>(address);
   wire_ = wire;
-  setup();
+  return setup();
 }
 
 uint8_t Bme280TwoWire::getAddress() const { return address_; }
@@ -316,18 +323,18 @@ const SPISettings Bme280FourWire::spiSettings_ =
 
 #if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_SPI)
 
-void Bme280FourWire::begin(const uint8_t csPin) { begin(csPin, &SPI); }
+bool Bme280FourWire::begin(const uint8_t csPin) { return begin(csPin, &SPI); }
 
 #endif
 
-void Bme280FourWire::begin(const uint8_t csPin, SPIClass *spi) {
+bool Bme280FourWire::begin(const uint8_t csPin, SPIClass *spi) {
   spi_ = spi;
   csPin_ = csPin;
 
   pinMode(csPin_, OUTPUT);
   digitalWrite(csPin_, HIGH);
 
-  setup();
+  return setup();
 }
 
 uint8_t Bme280FourWire::getCsPin() const { return csPin_; }
