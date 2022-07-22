@@ -2,6 +2,11 @@
 
 ArduinoMock* arduino = nullptr;
 
+unsigned long millis() {
+  assert(arduino != nullptr);
+  return arduino->millis();
+}
+
 void delay(unsigned long ms) {
   assert(arduino != nullptr);
   arduino->delay(ms);
