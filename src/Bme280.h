@@ -21,6 +21,8 @@
 #define final
 #endif
 
+#define ARDUINO_BME280_TIMEOUT 10000  // 10 seconds
+
 enum class Bme280Mode : uint8_t { Sleep = 0b00, Forced = 0b01, Normal = 0b11 };
 
 enum class Bme280Oversampling : uint8_t {
@@ -237,7 +239,7 @@ class AbstractBme280 : public Bme280 {
   void wakeUpForced() final;
 
  protected:
-  __NOT_VIRTUAL void setup();
+  __NOT_VIRTUAL bool setup();
 
  private:
   bool isMeasuring() const;
@@ -273,10 +275,10 @@ class Bme280TwoWire final : public ::internal::AbstractBme280 {
   virtual ~Bme280TwoWire();
 
 #if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_TWOWIRE)
-  void begin();
-  void begin(const Bme280TwoWireAddress address);
+  bool begin();
+  bool begin(const Bme280TwoWireAddress address);
 #endif
-  void begin(const Bme280TwoWireAddress address, TwoWire *wire);
+  bool begin(const Bme280TwoWireAddress address, TwoWire *wire);
 
   uint8_t getAddress() const;
 
@@ -296,9 +298,9 @@ class Bme280FourWire final : public ::internal::AbstractBme280 {
   virtual ~Bme280FourWire();
 
 #if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_SPI)
-  void begin(const uint8_t csPin);
+  bool begin(const uint8_t csPin);
 #endif
-  void begin(const uint8_t csPin, SPIClass *spi);
+  bool begin(const uint8_t csPin, SPIClass *spi);
 
   uint8_t getCsPin() const;
 
