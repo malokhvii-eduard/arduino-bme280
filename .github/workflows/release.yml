@@ -10,7 +10,6 @@ on:
 jobs:
   semantic-release:
     name: 📦🚀 Semantic Release
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
