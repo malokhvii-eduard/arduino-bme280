@@ -55,7 +55,7 @@ jobs:
       - name: Use Python
         uses: actions/setup-python@v2
       - name: Install PlatformIO Core
-        run: pip install -U platformio==6.0.2
+        run: pip install -U platformio==6.1.3
       - name: Run tests
         run: pio test -v
       - name: Install Gcovr
