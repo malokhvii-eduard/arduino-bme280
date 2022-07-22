@@ -15,6 +15,8 @@
 #define LSBFIRST 0
 #define MSBFIRST 1
 
+unsigned long millis();
+
 void delay(unsigned long);
 
 void pinMode(uint8_t pin, uint8_t mode);
@@ -23,6 +25,7 @@ void digitalWrite(uint8_t pin, uint8_t val);
 
 class ArduinoMock {
  public:
+  MOCK_METHOD(unsigned long, millis, ());
   MOCK_METHOD(void, pinMode, (uint8_t, uint8_t));
   MOCK_METHOD(void, delay, (unsigned long));
   MOCK_METHOD(void, digitalWrite, (uint8_t, uint8_t));
