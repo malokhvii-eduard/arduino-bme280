@@ -17,7 +17,6 @@
   <p id="shields" align="center" markdown="1">
 
 [![License](https://img.shields.io/badge/license-MIT-3178C6?style=flat)](LICENSE)
-[![PlatformIO Registry](https://badges.registry.platformio.org/packages/malokhvii-eduard/library/arduino-bme280.svg)](https://registry.platformio.org/libraries/malokhvii-eduard/arduino-bme280)
 [![Husky](https://img.shields.io/badge/husky-enabled-brightgreen?style=flat)][github-husky]
 [![Commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen)][github-commitizen]
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)][github-semantic-release]
